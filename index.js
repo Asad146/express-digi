@@ -1,4 +1,5 @@
 import express from "express";
+import "dotenv/config";
 
 const app = express();
 
@@ -61,7 +62,7 @@ app.delete('/teas/:id', (req, res) =>{
     teaData.splice(index, 1)
     return res.status(204).send("Deleted");
 })
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`server is running at port:${port}...`);
 });
